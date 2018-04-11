@@ -1,3 +1,4 @@
+%2-11
 clear;clc;
 t=0:0.005:1;x=0:0.1:1;
 %图1
@@ -113,3 +114,17 @@ for i=1:201
 end
 %画图
 plot(t,log10(ee11),t,log10(ee21),t,log10(ee31));
+
+function y= uu(x,t)
+%原函数
+y=2/3;
+for i=1:1000
+    y=y-2*(2/(i*pi)^2*cos(i*pi))*exp(-(i*pi)^2*t)*cos(i*pi*x);
+end
+
+function y =uuu(i,j)
+%原函数积分
+y=2/3;
+for n=1:100
+    y=y+10*(-4*cos(n*pi)/(n*pi)^3)*exp(-(n*pi)^2*(i-1)*0.005)*(sin(n*pi*(j)*0.1)-sin(n*pi*(j-1)*0.1));
+end
